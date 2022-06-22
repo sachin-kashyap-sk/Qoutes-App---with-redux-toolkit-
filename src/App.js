@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+import { Navbar } from "./app/Navbar";
+
+import PostsList from "./features/posts/PostsList";
+import SinglePostPage from "./features/posts/SinglePostPage";
+import AddPostsForm from "./features/posts/AddPostsForm";
+import EditPostForm from "./features/posts/EditPostForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Fragment>
+                <AddPostsForm />
+                <PostsList />
+              </Fragment>
+            )}
+          ></Route>
+          <Route exact path="/posts/:postId" component={SinglePostPage} />
+          <Route exact path="/editPost/:postId" component={EditPostForm} />
+          <Redirect to="/" />
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
 export default App;
