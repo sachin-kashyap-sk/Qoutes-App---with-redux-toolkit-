@@ -1,18 +1,20 @@
-import React, {useState} from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { postAdded } from "./postSlice";
 
 const AddPostsForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
+  const [userId] = useState("");
 
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  // const users = useSelector((state) => state.users);
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
-  const onAuthorChanged = (e) => setUserId(e.target.value);
+  // const onAuthorChanged = (e) => setUserId(e.target.value);
 
   const OnSavePostClicked = () => {
     if (title && content) {
@@ -22,13 +24,13 @@ const AddPostsForm = () => {
     }
   };
 
-  const canSave = Boolean(title) && Boolean(content) && Boolean(userId);
+  const canSave = Boolean(title) && Boolean(content);
 
-  const usersOptions = users.map((user) => (
-    <option key={user.id} value={user.id}>
-      {user.name}
-    </option>
-  ));
+  // const usersOptions = users.map((user) => (
+  //   <option key={user.id} value={user.id}>
+  //     {/* {user.name} */}
+  //   </option>
+  // ));
 
   return (
     <section>
@@ -47,7 +49,7 @@ const AddPostsForm = () => {
           value={title}
           onChange={onTitleChanged}
         ></input>
-        <label className="label" htmlFor="postAuthor">
+        {/* <label className="label" htmlFor="postAuthor">
           Author
         </label>
         <select
@@ -58,7 +60,7 @@ const AddPostsForm = () => {
         >
           <option value=""></option>
           {usersOptions}
-        </select>
+        </select> */}
 
         <label className="label" htmlFor="postContent">
           Content

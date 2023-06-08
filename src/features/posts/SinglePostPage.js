@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { PostAuthor } from "./PostAuthor";
-import { TimeAgo } from "./TimeAgo";
-import { ReactionButtons } from "./ReactionButton";
+// import { PostAuthor } from "./PostAuthor";
+// import { TimeAgo } from "./TimeAgo";
+// import { ReactionButtons } from "./ReactionButton";
 const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
 
@@ -24,11 +24,11 @@ const SinglePostPage = ({ match }) => {
       <article className="post">
         <h2>{post.title}</h2>
         <div>
-          <PostAuthor userId={post.user} />
-          <TimeAgo timestamp={post.date} />
+          {/* <PostAuthor userId={post.user} /> */}
+          {/* <TimeAgo timestamp={post.date} /> */}
         </div>
         <p className="post-content">{post.content}</p>
-        <ReactionButtons post ={post}/>
+        {/* <ReactionButtons post ={post}/> */}
         <Link to={`/editPost/${post.id}`} className="button">
           Edit post
         </Link>

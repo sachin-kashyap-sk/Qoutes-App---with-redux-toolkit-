@@ -13,7 +13,6 @@ import PostsList from "./features/posts/PostsList";
 import SinglePostPage from "./features/posts/SinglePostPage";
 import AddPostsForm from "./features/posts/AddPostsForm";
 import EditPostForm from "./features/posts/EditPostForm";
-
 function App() {
   return (
     <Router>

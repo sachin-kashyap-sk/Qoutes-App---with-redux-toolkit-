@@ -8,7 +8,7 @@ const EditPostForm = ({ match }) => {
 
   const post = useSelector((state) =>
     state.posts.find((post) => post.id === postId)
-  );
+    );
   // (state) => selectPostById(state, postId)
 
   const [title, setTitle] = useState(post?.title);
@@ -22,7 +22,7 @@ const EditPostForm = ({ match }) => {
 
   const onSavePostClicked = () => {
     if (title && content) {
-      dispatch(postUpdated({ id: postId,title, content }));
+      dispatch(postUpdated({ id: postId, title, content }));
       history.push(`/posts/${postId}`);
     }
   };
